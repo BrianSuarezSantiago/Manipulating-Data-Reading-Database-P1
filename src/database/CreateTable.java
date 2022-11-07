@@ -5,13 +5,11 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.SQLException;
 /**
- * Class representing a database table. The class has the
- * necessary public method to create all new local table
- * in a local database specified by an URL using the JDBC
- * driver provided by SQLite.
+ * Class responsible for the creation of a table
+ * in the local database specified by the URL.
  *
  * @author Brian Suárez Santiago
- * @version 2.0.0
+ * @version 3.0.0
  * @see <a href="https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html">Package java.sql</a>
  * @see <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java JDBC API</a>
  */
