@@ -11,7 +11,7 @@ import java.sql.ResultSet;
  * as well as performing a query to the database table.
  *
  * @author Brian Suárez Santiago
- * @version 1.0.0
+ * @version 2.0.0
  * @see <a href="https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html">Package java.sql</a>
  * @see <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/">Java JDBC API</a>
  */
@@ -39,7 +39,7 @@ public class Query {
     }
 
     /**
-     * Returns all rows and all columns from the People
+     * Returns all rows and all columns from the Emails
      * table obtaining thus, all the data contains in it.
      */
     public void selectAll() {
@@ -47,13 +47,15 @@ public class Query {
 
         try {
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM People;");
+            ResultSet result = statement.executeQuery("SELECT * FROM Emails;");
 
-            while(result.next()) {
-                System.out.println(result.getInt("Id") + "\t" +
-                                  result.getString("Name") + "\t" +
-                                  result.getString("Surname") + "\t" +
-                                  result.getString("Role"));
+            if(result.isBeforeFirst()) {
+                System.out.println("The table is empty!");
+            } else {
+                while(result.next()) {
+                    System.out.println(result.getInt("Id") + "\t" +
+                                      result.getString("Address") + "\t");
+                }
             }
         } catch(SQLException exception) {
             System.out.println(exception.getMessage());
